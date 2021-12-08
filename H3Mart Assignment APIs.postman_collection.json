@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "db85289e-e66e-419e-aa54-3d17dbdffbdb",
+		"name": "H3Mart Assignment APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all books with pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/books?pages=1&records=10&offset=0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "pages",
+							"value": "1"
+						},
+						{
+							"key": "records",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get order by order id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdDIiLCJzaGlwcGluZ19hZGRyZXNzIjoiSFNSIExheW91dCIsImNvbnRhY3RfbnVtYmVyIjoxMjM0NTY3ODkwLCJlbWFpbCI6InRlc3QyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoidGVzdDIiLCJpYXQiOjE2Mzg4OTEwMDcsImV4cCI6MTYzODk3NzQwN30.HdSfitWHSIj0k8Nn-quoT4QKOjMt3KIeepnlp8yEtXQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/order/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"order",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"book_name\":\"The Hobbit Vol 1\",\n    \"price_in_inr\":300\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/add/book",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"add",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"test2\",\n    \"shipping_address\":\"HSR Layout\",\n    \"contact_number\":1234567890,\n    \"email\":\"test2@gmail.com\",\n    \"password\":\"test2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/add/customer",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"add",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "123",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer_id\":1,\n    \"total_amount\":500,\n    \"book_details\" :[\n        {\n            \"id\":1,\n            \"quantity\":1,\n            \"name\":\"Harry Potter\",\n            \"price\":200\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/order/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"order",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
